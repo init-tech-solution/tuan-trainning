@@ -4,6 +4,8 @@
 }
 
 .title {
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
   color: #0080bf;
   font-size: 20px;
   width: 100%;
