@@ -1,11 +1,16 @@
 import React from "react";
-import "./style.css"
+import "./style.css";
 
-export default function Input() {
+export default function Input(props) {
+  const handleChange = (e) => {
+    props.onChange(e.target.value);
+  };
+
   return (
-    <div className="inputForm">
-      <input type="text" placeholder="Username"/>
-      <input type="password" placeholder="Password" />
-    </div>
+    <input
+      onChange={handleChange}
+      type="text"
+      placeholder={props.placeHolder}
+    />
   );
 }

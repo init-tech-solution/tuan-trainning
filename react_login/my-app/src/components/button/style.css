@@ -1,4 +1,4 @@
-.formButton button {
+button {
   font-family: "Roboto", sans-serif;
   background-color: #0080bf;
   padding: 15px;
@@ -10,8 +10,8 @@
   font-size: 14px;
   border: 0;
 }
-.formButton button:hover,
-.formButton button:focus,
-.formButton button:active {
+button:hover,
+button:focus,
+button:active {
   background-color: #006098;
 }
