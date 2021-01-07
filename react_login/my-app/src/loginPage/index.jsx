@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css";
-import Input from "./input";
-import Button from "./button";
-import Title from "./titleINIT";
-export default function Home() {
+import Input from "../components/input";
+import Button from "../components/button";
+import Title from "../components/titleINIT";
+export default function Login() {
   return (
     <div className="login-page">
       <div className="form">
