@@ -1,15 +1,16 @@
 import React from "react";
 import "./style.css";
-
-export default function Content() {
+import Input from "./input";
+import Button from "./button";
+import Title from "./titleINIT";
+export default function Home() {
   return (
     <div className="login-page">
       <div className="form">
-        <h1 className="title">WELCOME TO INIT</h1>
+        <Title></Title>
         <form className="login-form">
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
-          <button>login</button>
+          <Input></Input>
+          <Button></Button>
           <p className="message">
             Not registered? <a href="#">Create an account</a>
           </p>
