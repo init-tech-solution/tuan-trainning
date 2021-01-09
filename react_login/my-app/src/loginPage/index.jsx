@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./style.css";
-
+import axios from 'axios';
 import Input from "../components/input";
 import Button from "../components/button";
 import Title from "../components/titleINIT";
+
+
 
 export default function Login() {
   const [loginInfo, updateLoginInfo] = useState({
@@ -14,7 +16,7 @@ export default function Login() {
   const handleChange = (key) => {
     return (val) => {
       const newLoginInfo = { ...loginInfo }; // copy object
-      newLoginInfo[key] = val;
+      newLoginInfo[key] = val; // update key, value
       // const updatedLoginInfo = { ...loginInfo, [key]: val } // nhu tren
 
       updateLoginInfo(newLoginInfo);
@@ -22,7 +24,18 @@ export default function Login() {
   };
 
   const handleLogin = () => {
-    console.log(loginInfo);
+    // console.log(loginInfo);
+    axios({
+      method: 'POST',
+      url: 'http://localhost:8069/api/login',
+      data: loginInfo,
+    }).then((res)=>{
+      console.log("Login success full", res);
+    }).catch(()=>{
+      console.log("error");
+    })
+
+    
   };
 
   return (
