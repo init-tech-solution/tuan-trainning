@@ -30,7 +30,9 @@ def login():
             csv_reader = csv.reader(csv_file)
             for row in csv_reader:
                 if row[0] == username and row[1] == password:
-                    return jsonify('Login Successfully')
+                    jwtToken = {'token': 12345}
+                    return jsonify(jwtToken)
+                    # driver.execute_script("window.localStorage;")
 
     return Response('Unauthorized', status=403)
 

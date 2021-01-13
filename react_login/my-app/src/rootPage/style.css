@@ -1,0 +1,33 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.welcome {
+  text-align: center;
+  margin-top: 400px;
+  width: 100%;
+  margin: auto;
+  padding: 20% 0 0;
+  position: relative;
+}
+.welcome h1 {
+  font-family: "Roboto", sans-serif;
+  color: White;
+  font-size: 150px;
+}
+.welcome__logout {
+  width: 200px;
+  margin: auto;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.welcome__logout button{
+  background-color: grey;
+  color: black;
+  font-weight: bold;
+}
+.welcome__logout button:hover{
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
