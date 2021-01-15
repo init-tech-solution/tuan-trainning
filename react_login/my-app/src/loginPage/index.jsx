@@ -4,9 +4,12 @@ import axios from "axios";
 import Input from "../components/input";
 import Button from "../components/button";
 import Title from "../components/titleINIT";
-import {useHistory} from 'react-router-dom';
-import 'react-notifications/lib/notifications.css';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { useHistory } from "react-router-dom";
+import "react-notifications/lib/notifications.css";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 
 export default function Login() {
   const history = useHistory();
@@ -35,17 +38,18 @@ export default function Login() {
     })
       .then((res) => {
         console.log("Login success", res.data);
-        history.push('/')
-        localStorage.setItem('token', JSON.stringify(res.data.token));
+        history.push("/");
+        localStorage.setItem("token", JSON.stringify(res.data.token));
       })
       .catch(() => {
         console.log("error");
-        NotificationManager.success('Please try again after 3 second', 'Username or Password wrong', 3000);
+        NotificationManager.success(
+          "Please try again after 3 second",
+          "Username or Password wrong",
+          3000
+        );
       });
   };
-
- 
-  
 
   return (
     <div className="login-page">
@@ -60,14 +64,13 @@ export default function Login() {
             placeHolder="password"
             onChange={handleChange("password")}
           ></Input>
-          <Button onClick={handleLogin} Name={'Login'}></Button>
+          <Button onClick={handleLogin} Name={"Login"}></Button>
           <p className="message">
             Not registered? <a href="#">Create an account</a>
           </p>
         </form>
         <NotificationContainer />
       </div>
-     
     </div>
   );
 }
