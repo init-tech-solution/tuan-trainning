@@ -10,7 +10,7 @@ import {
   NotificationContainer,
   NotificationManager,
 } from "react-notifications";
-
+import Swal from "sweetalert2";
 export default function Login() {
   const history = useHistory();
   const [loginInfo, updateLoginInfo] = useState({
@@ -38,8 +38,13 @@ export default function Login() {
     })
       .then((res) => {
         console.log("Login success", res.data);
+
+        let data = res.data;
+
+        localStorage.setItem("token", JSON.stringify(data.token));
+        localStorage.setItem("userID", JSON.stringify(data.id));
+
         history.push("/");
-        localStorage.setItem("token", JSON.stringify(res.data.token));
       })
       .catch(() => {
         console.log("error");

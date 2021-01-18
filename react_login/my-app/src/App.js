@@ -23,14 +23,12 @@ function App() {
           <ProtectedLoginRoute
             path="/admin"
             component={Admin}
-            success="/admin"
             fail="/login"
           ></ProtectedLoginRoute>
 
           <ProtectedLoginRoute
             path="/"
             component={Welcome}
-            success="/"
             fail="/login"
           ></ProtectedLoginRoute>
         </Switch>

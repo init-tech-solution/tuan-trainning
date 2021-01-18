@@ -21,12 +21,12 @@
   right: 25px;
 }
 
-.welcome__logout button{
+.welcome__logout button {
   background-color: grey;
   color: black;
   font-weight: bold;
 }
-.welcome__logout button:hover{
+.welcome__logout button:hover {
   background-color: white;
   color: black;
   font-weight: bold;
