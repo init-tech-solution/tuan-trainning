@@ -39,7 +39,14 @@ function Header() {
   //         console.log("error");
   //       });
   //   };
-  return <div className="header">{display}</div>;
+  return (
+    <div
+      className="header"
+      style={{ color: "white", fontSize: "20px", fontWeight: "bold" }}
+    >
+      Welcome to {display}
+    </div>
+  );
 }
 
 export default Header;
