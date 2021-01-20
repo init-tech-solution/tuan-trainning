@@ -1,0 +1,17 @@
+button {
+  font-family: "Roboto", sans-serif;
+  background-color: #0080bf;
+  padding: 15px;
+  width: 100%;
+  outline: none;
+  border-radius: 3px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  border: 0;
+}
+button:hover,
+button:focus,
+button:active {
+  background-color: #006098;
+}
