@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
 import Button from "../components/button";
 import { useHistory } from "react-router-dom";
