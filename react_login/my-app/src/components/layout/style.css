@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.layout-header {
+  background-color: #1380bf;
+  list-style: none;
+  height: 50px;
+}
+
+.layout-header ul li a {
+  text-decoration: none;
+  list-style: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 50px;
+}
+.layout-header ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+.layout-footer {
+  height: 200px;
+  background-color: #1380bf;
+}
+
+.layout-footer h1 {
+  color: white;
+  text-align: center;
+  line-height: 200px;
+}

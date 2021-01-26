@@ -16,6 +16,7 @@ export default function Welcome() {
     <div className="welcome">
       <Header />
       <h1>WELCOME HOME</h1>
+
       <div className="welcome__logout">
         <Button Name={"LogOut"} onClick={logOut}></Button>
       </div>

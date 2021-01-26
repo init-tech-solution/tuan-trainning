@@ -6,33 +6,60 @@ import Admin from "./adminPage";
 import { userState } from "react";
 import ProtectedLoginRoute from "./components/ProtectedRoute";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import LayoutOne from "./components/layout";
+
+function RouteLayout({
+  route: CustomRoute,
+  layout: Layout,
+  component: Component,
+  ...restProps // props con lai
+}) {
+  return (
+    <CustomRoute
+      {...restProps}
+      render={(props) => (
+        <Layout {...props}>
+          <Component {...props} />
+        </Layout>
+      )}
+    />
+  );
+}
 
 function App() {
   return (
     <Router>
-      <div>
-        {/* <ul>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul> */}
+      <Switch>
+        <Route path="/login" component={Login}></Route>
+        {/* <RouteLayout
+          route={Route}
+          layout={LayoutOne}
+          component={Login}
+          path="/login"
+        /> */}
 
-        <Switch>
-          <Route path="/login" component={Login}></Route>
+        {/* <ProtectedLoginRoute
+          path="/admin"
+          component={Admin}
+          fail="/login"
+          layout={LayoutOne}
+        ></ProtectedLoginRoute> */}
+        <RouteLayout
+          route={ProtectedLoginRoute}
+          layout={LayoutOne}
+          component={Admin}
+          path="/admin"
+          fail="/login"
+        />
 
-          <ProtectedLoginRoute
-            path="/admin"
-            component={Admin}
-            fail="/login"
-          ></ProtectedLoginRoute>
-
-          <ProtectedLoginRoute
-            path="/"
-            component={Welcome}
-            fail="/login"
-          ></ProtectedLoginRoute>
-        </Switch>
-      </div>
+        <RouteLayout
+          route={ProtectedLoginRoute}
+          layout={LayoutOne}
+          component={Welcome}
+          path="/"
+          fail="/login"
+        />
+      </Switch>
     </Router>
   );
 }
