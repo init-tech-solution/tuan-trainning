@@ -11,6 +11,7 @@ export default function Input(props) {
       onChange={handleChange}
       type="text"
       placeholder={props.placeHolder}
+      // value={props.value}
     />
   );
 }

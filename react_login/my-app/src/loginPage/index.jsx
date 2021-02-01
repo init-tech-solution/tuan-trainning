@@ -10,9 +10,12 @@ import {
   NotificationContainer,
   NotificationManager,
 } from "react-notifications";
-import Swal from "sweetalert2";
+import { useDispatch, useSelector } from "react-redux";
+
 export default function Login() {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const storeData = useSelector((store) => store);
   const [loginInfo, updateLoginInfo] = useState({
     username: "",
     password: "",
@@ -40,7 +43,10 @@ export default function Login() {
         console.log("Login success", res.data);
 
         let data = res.data;
-
+        // dispatch({
+        //   type: "ADD_ID_TOKEN",
+        //   payload: { token: data.token, userId: data.id },
+        // });
         localStorage.setItem("token", JSON.stringify(data.token));
         localStorage.setItem("userID", JSON.stringify(data.id));
 
@@ -64,10 +70,18 @@ export default function Login() {
           <Input
             placeHolder="username"
             onChange={handleChange("username")}
+            // value={loginInfo.username}
+            // onChange={(e) => {
+            //   updateLoginInfo(e.target.value);
+            // }}
           ></Input>
           <Input
             placeHolder="password"
             onChange={handleChange("password")}
+            // value={loginInfo.password}
+            // onChange={(e) => {
+            //   updateLoginInfo(e.target.value);
+            // }}
           ></Input>
           <Button onClick={handleLogin} Name={"Login"}></Button>
           <p className="message">

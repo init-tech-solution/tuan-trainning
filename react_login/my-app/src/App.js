@@ -7,6 +7,9 @@ import { userState } from "react";
 import ProtectedLoginRoute from "./components/ProtectedRoute";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import LayoutOne from "./components/layout";
+import { createStore } from "redux";
+import userReducer from "./userReducer";
+import { Provider } from "react-redux";
 
 function RouteLayout({
   route: CustomRoute,
@@ -27,40 +30,43 @@ function RouteLayout({
 }
 
 function App() {
+  const store = createStore(userReducer);
   return (
-    <Router>
-      <Switch>
-        <Route path="/login" component={Login}></Route>
-        {/* <RouteLayout
+    <Provider store={store}>
+      <Router>
+        <Switch>
+          <Route path="/login" component={Login}></Route>
+          {/* <RouteLayout
           route={Route}
           layout={LayoutOne}
           component={Login}
           path="/login"
         /> */}
 
-        {/* <ProtectedLoginRoute
+          {/* <ProtectedLoginRoute
           path="/admin"
           component={Admin}
           fail="/login"
           layout={LayoutOne}
         ></ProtectedLoginRoute> */}
-        <RouteLayout
-          route={ProtectedLoginRoute}
-          layout={LayoutOne}
-          component={Admin}
-          path="/admin"
-          fail="/login"
-        />
+          <RouteLayout
+            route={ProtectedLoginRoute}
+            layout={LayoutOne}
+            component={Admin}
+            path="/admin"
+            fail="/login"
+          />
 
-        <RouteLayout
-          route={ProtectedLoginRoute}
-          layout={LayoutOne}
-          component={Welcome}
-          path="/"
-          fail="/login"
-        />
-      </Switch>
-    </Router>
+          <RouteLayout
+            route={ProtectedLoginRoute}
+            layout={LayoutOne}
+            component={Welcome}
+            path="/"
+            fail="/login"
+          />
+        </Switch>
+      </Router>
+    </Provider>
   );
 }
 
