@@ -11,7 +11,7 @@ import {
   NotificationManager,
 } from "react-notifications";
 import { useDispatch, useSelector } from "react-redux";
-
+import { actionLogin } from "../action";
 export default function Login() {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -34,32 +34,7 @@ export default function Login() {
   const handleLogin = () => {
     // console.log(loginInfo);
 
-    axios({
-      method: "POST",
-      url: "http://localhost:8069/api/login",
-      data: loginInfo,
-    })
-      .then((res) => {
-        console.log("Login success", res.data);
-
-        let data = res.data;
-        // dispatch({
-        //   type: "ADD_ID_TOKEN",
-        //   payload: { token: data.token, userId: data.id },
-        // });
-        localStorage.setItem("token", JSON.stringify(data.token));
-        localStorage.setItem("userID", JSON.stringify(data.id));
-
-        history.push("/");
-      })
-      .catch(() => {
-        console.log("error");
-        NotificationManager.success(
-          "Please try again after 3 second",
-          "Username or Password wrong",
-          3000
-        );
-      });
+    dispatch(actionLogin(loginInfo, history));
   };
 
   return (

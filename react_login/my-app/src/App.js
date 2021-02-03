@@ -1,15 +1,26 @@
-import logo from "./logo.svg";
 // import "./App.css";
 import Login from "./loginPage";
 import Welcome from "./rootPage";
 import Admin from "./adminPage";
-import { userState } from "react";
 import ProtectedLoginRoute from "./components/ProtectedRoute";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LayoutOne from "./components/layout";
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import userReducer from "./userReducer";
 import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+
+const composeEnhancers =
+  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+        // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+      })
+    : compose;
+
+const enhancer = composeEnhancers(
+  applyMiddleware(thunk)
+  // other store enhancers if any
+);
 
 function RouteLayout({
   route: CustomRoute,
@@ -30,7 +41,7 @@ function RouteLayout({
 }
 
 function App() {
-  const store = createStore(userReducer);
+  const store = createStore(userReducer, enhancer);
   return (
     <Provider store={store}>
       <Router>
