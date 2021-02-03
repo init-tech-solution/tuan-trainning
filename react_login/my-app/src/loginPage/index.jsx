@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./style.css";
-import axios from "axios";
 import Input from "../components/input";
 import Button from "../components/button";
 import Title from "../components/titleINIT";
@@ -10,12 +9,11 @@ import {
   NotificationContainer,
   NotificationManager,
 } from "react-notifications";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { actionLogin } from "../action";
 export default function Login() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const storeData = useSelector((store) => store);
   const [loginInfo, updateLoginInfo] = useState({
     username: "",
     password: "",

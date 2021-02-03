@@ -10,6 +10,11 @@ const userReducer = (state = initialData, action) => {
         token: action.payload.token,
         id: action.payload.id,
       };
+    case "SHOW_NAME":
+      return {
+        ...state,
+        id: action.payload,
+      };
   }
   return state;
 };

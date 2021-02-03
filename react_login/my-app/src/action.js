@@ -39,9 +39,13 @@ export const actionDisplayName = () => {
       data: null,
     })
       .then((res) => {
-        setDisplay(res.data.display_name);
+        let data = res.data;
+        dispatch({ type: "SHOW_NAME", payload: data.display_name });
+
+        // getState().id
+        // setDisplay(res.data.display_name);
         // console.log("3", display);
-        // console.log("WelCome", res.data.display_name);
+        console.log("WelCome", res.data.display_name);
       })
       .catch(() => {
         console.log("error");

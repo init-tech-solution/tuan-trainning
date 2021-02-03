@@ -12,18 +12,16 @@ function Header() {
 
   useEffect(() => {
     dispatch(actionDisplayName());
-  }, []);
+  }, []); // [] useEffect se thay doi khi co mot state trong nay
 
   return (
     <div
       className="header"
       style={{ color: "white", fontSize: "20px", fontWeight: "bold" }}
     >
-      Welcome to {}
+      Welcome to {storeData.id}
     </div>
   );
 }
 
 export default Header;
-
-// useEffect: khi state ma useEffect
