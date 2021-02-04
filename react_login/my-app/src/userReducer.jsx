@@ -1,6 +1,7 @@
 const initialData = {
   token: null,
   id: null,
+  name: null,
 };
 
 const userReducer = (state = initialData, action) => {
@@ -13,7 +14,7 @@ const userReducer = (state = initialData, action) => {
     case "SHOW_NAME":
       return {
         ...state,
-        id: action.payload,
+        name: action.payload,
       };
   }
   return state;

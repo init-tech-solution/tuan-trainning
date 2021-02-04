@@ -7,7 +7,6 @@ export default function Admin() {
   const history = useHistory();
   const handleLogout = () => {
     history.push("/login");
-    localStorage.removeItem("token");
   };
   return (
     <div className="admin">
