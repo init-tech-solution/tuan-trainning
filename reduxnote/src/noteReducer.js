@@ -1,20 +1,26 @@
 const initialData = {
-  username: null,
-  password: null,
   taskNote: [],
 };
 const noteReducer = (state = initialData, action) => {
   switch (action.type) {
-    case "ADD_AUTHENTICATED":
-      return {
-        username: action.payload,
-        password: action.payload,
-      };
-
     case "ADD_TASK":
       return {
         ...state,
         taskNote: [...state.taskNote, action.payload],
+      };
+    case "REMOVE_TASK":
+      return {
+        ...state,
+        taskNote: state.taskNote.filter((task) => task !== action.payload),
+      };
+    case "EDIT_TASK":
+      return {
+        taskNote: state.taskNote.map((task) => {
+          if (task == action.payload.oldTask) {
+            task = action.payload.newTask;
+            return task;
+          }
+        }),
       };
   }
   return state;

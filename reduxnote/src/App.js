@@ -3,8 +3,8 @@ import "./App.css";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import noteReducer from "./noteReducer";
-import LoginPage from "./loginPage";
-import NotePage from "./notePage";
+import LoginPage from "./loginpage";
+import NotePage from "./notepage";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 function App() {
