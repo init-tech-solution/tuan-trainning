@@ -20,24 +20,45 @@ function AddNote() {
   return (
     <div>
       <NavbarNote />
-      <h1>Add Note Component</h1>
-      <div className="row justify-content-center">
-        <Input
-          className={"form-control col-md-6"}
-          value={task}
-          onChange={(e) => {
-            settask(e.target.value);
-            console.log(e.target.value);
-          }}
-          placeholder="Note"
-          style={{ textAlign: "center" }}
-        />
-        <Button
-          className={"btn btn-primary col-md-1 ml-1"}
-          Name="Add"
-          style={{ color: "white" }}
-          onClick={addTask}
-        />
+      <div
+        className=" p-3 ml-5 mr-5"
+        style={{
+          backgroundColor: "white",
+          borderRadius: "10px",
+        }}
+      >
+        <h1>Add Note Component</h1>
+        <div className="AddNote__task row justify-content-center">
+          <Input
+            className={"form-control col-md-6 "}
+            value={task}
+            onChange={(e) => {
+              settask(e.target.value);
+              console.log(e.target.value);
+            }}
+            placeholder="Note"
+            style={{
+              textAlign: "center",
+              border: "1px solid black",
+              display: "inline",
+            }}
+          />
+          <Button
+            Name="ADD NOTE"
+            onClick={addTask}
+            style={{
+              padding: "0px 10px 0 10px",
+              textAlign: "center",
+              marginLeft: "5px",
+              // color: "white",
+              // backgroundColor: "#067bf9",
+
+              border: "none",
+
+              borderRadius: "5px",
+            }}
+          />
+        </div>
       </div>
       <Todolist />
     </div>

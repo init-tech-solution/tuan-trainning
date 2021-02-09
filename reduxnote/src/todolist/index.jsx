@@ -9,7 +9,10 @@ function TodoList() {
     return <TodoItem task={task} />;
   });
   return (
-    <div className="row justify-content-center">
+    <div
+      style={{ backgroundColor: "white", borderRadius: "10px" }}
+      className="row justify-content-center m-5 p-3"
+    >
       <div className="col-md-6">{showNote}</div>
     </div>
   );

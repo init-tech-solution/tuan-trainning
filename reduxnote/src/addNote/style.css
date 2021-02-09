@@ -1,0 +1,8 @@
+.AddNote__task button {
+  color: white;
+  background: #067bf9;
+}
+
+.AddNote__task button:hover {
+  background: #0062cc;
+}

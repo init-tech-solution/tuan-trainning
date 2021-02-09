@@ -16,11 +16,11 @@ const noteReducer = (state = initialData, action) => {
       };
     case EDIT_TASK:
       return {
+        ...state,
         taskNote: state.taskNote.map((task) => {
-          if (task == action.payload.oldTask) {
-            task = action.payload.newTask;
-            return task;
-          }
+          if (task == action.payload.oldTask) task = action.payload.newTask;
+
+          return task;
         }),
       };
   }
