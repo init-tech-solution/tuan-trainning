@@ -7,6 +7,7 @@ import NavbarNote from "../navBarNote";
 import { ADD_NEW_TASK } from "../const/index";
 import "./style.css";
 import Todolist from "../todolist";
+import { actAddNote } from "../action/index";
 
 function AddNote() {
   const dispatch = useDispatch();
@@ -14,7 +15,8 @@ function AddNote() {
   const [task, settask] = useState("");
 
   const addTask = () => {
-    dispatch({ type: ADD_NEW_TASK, payload: task });
+    // dispatch({ type: ADD_NEW_TASK, payload: task });
+    dispatch(actAddNote(task));
   };
 
   return (

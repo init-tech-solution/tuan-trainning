@@ -2,21 +2,23 @@ import React, { useState } from "react";
 import { EDIT_TASK, REMOVE_TASK } from "../const";
 import Button from "../components/button";
 import Input from "../components/input";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { actRemoveNote, actEditNote } from "../action/index";
 
 function TodoItem({ task }) {
   const [show, setshow] = useState("none");
   const [newtask, setnewtask] = useState("");
   const dispatch = useDispatch();
   const handleDelete = (task) => {
-    dispatch({ type: REMOVE_TASK, payload: task });
-    // alert(task);
+    // dispatch({ type: REMOVE_TASK, payload: task });
+    dispatch(actRemoveNote(task));
   };
   const handleEdit = () => {
     setshow("inline");
   };
   const handleUpdate = (task) => {
-    dispatch({ type: EDIT_TASK, payload: { oldTask: task, newTask: newtask } });
+    // dispatch({ type: EDIT_TASK, payload: { oldTask: task, newTask: newtask } });
+    dispatch(actEditNote({ oldTask: task, newTask: newtask }));
     setshow("none");
   };
   return (
