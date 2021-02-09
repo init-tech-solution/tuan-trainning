@@ -2,9 +2,9 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import noteReducer from "./noteReducer";
+import noteReducer from "./reducer/noteReducer";
 import LoginPage from "./loginpage";
-import NotePage from "./notepage";
+import AddNote from "./addNote";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 function App() {
@@ -15,7 +15,8 @@ function App() {
         <Router>
           <Switch>
             <Route path="/login" component={LoginPage}></Route>
-            <Route path="/" component={NotePage}></Route>
+
+            <Route path="/" component={AddNote}></Route>
           </Switch>
         </Router>
       </Provider>
